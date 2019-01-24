@@ -1,16 +1,17 @@
+import Resolutions from './resolutions';
+
+// add new item to database
+// Resolutions.insert({
+//     name: 'test res',
+// });
+
+const res = Resolutions.find({}).fetch();
+console.log(res);
 // resolver to hit the api
 export default {
     Query: {
         resolutions() {
-            return [{
-                    _id: 'asdfsd',
-                    name: 'Get stuff done!'
-                },
-                {
-                    _id: 'fffffff',
-                    name: 'Lose some weight!'
-                }
-            ];
+            return Resolutions.find({}).fetch();
         }
     }
 };

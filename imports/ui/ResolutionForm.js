@@ -19,7 +19,8 @@ class ResolutionForm extends Component {
                 name: this.name.value
             }
         }).then(({ data }) => {
-            this.props.refetch();
+            // dont need this if set up autorefetch below
+            // this.props.refetch();
         }).catch(error => {
             console.log(error);
         });
@@ -40,5 +41,11 @@ class ResolutionForm extends Component {
 
 export default graphql(createResolution, {
     // name it so it isnt called Mutation
-    name: 'createResolution'
+    name: 'createResolution',
+    // options is a way to set up auto refetching with apollo
+    options: {
+        refetchQueries: [
+            'Resolutions'
+        ]
+    }
 })(ResolutionForm);

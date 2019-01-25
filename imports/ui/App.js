@@ -14,6 +14,7 @@ const App = ({ loading, resolutions }) => {
             {/* <h1>{data.hi}</h1>   */}
             {/* <ResolutionForm refetch={data.refetch}/> */}
             <ResolutionForm />
+            <button onClick={() => Meteor.logout()}>Logout</button>
             <ul>
                 {resolutions.map(res => (
                     <li key={res._id}>{res.name}</li>

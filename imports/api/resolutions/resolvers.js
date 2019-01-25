@@ -10,8 +10,11 @@ console.log(res);
 // resolver to hit the api
 export default {
     Query: {
-        resolutions() {
-            return Resolutions.find({}).fetch();
+        resolutions(obj, args, { userId }) {
+            console.log(userId);
+            return Resolutions.find({
+                userId
+            }).fetch();
         }
     },
 

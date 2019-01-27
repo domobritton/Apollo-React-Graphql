@@ -2,10 +2,10 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import ResolutionForm from './ResolutionForm';
+import GoalForm from './GoalForm';
 import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm';
 import { withApollo } from 'react-apollo';
-import { Accounts } from 'meteor/accounts-base';
 
 const App = ({ loading, resolutions, client }) => {
     if (loading) return null;
@@ -26,7 +26,9 @@ const App = ({ loading, resolutions, client }) => {
             <ResolutionForm />
             <ul>
                 {resolutions.map(res => (
-                    <li key={res._id}>{res.name}</li>
+                    <li key={res._id}>{res.name}
+                        <GoalForm resolutionId={res._id}/>
+                    </li>
                 ))}
             </ul>
         </div>

@@ -6,7 +6,7 @@ export default {
             const goalId = Goals.insert({
                 name,
                 resolutionId,
-                completed: false
+                completed: false,
             });
             return Goals.findOne(goalId);
         }

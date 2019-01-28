@@ -1,4 +1,5 @@
 import Resolutions from './resolutions';
+import Goals from '../goals/goals';
 
 // add new item to database
 // Resolutions.insert({
@@ -14,6 +15,14 @@ export default {
             console.log(userId);
             return Resolutions.find({
                 userId
+            }).fetch();
+        }
+    },
+
+    Resolution: {
+        goals: resolution => {
+            return Goals.find({
+                resolutionId: resolution._id
             }).fetch();
         }
     },

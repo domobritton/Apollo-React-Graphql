@@ -37,5 +37,5 @@ class GoalForm extends Component {
 }
 
 export default graphql(createGoal, {
-    name: 'createGoal',
+    name: 'createGoal'
 })(GoalForm);

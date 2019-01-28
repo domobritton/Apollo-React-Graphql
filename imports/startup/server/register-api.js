@@ -8,7 +8,7 @@ import ResolutionsSchema from '../../api/resolutions/Resolutions.graphql';
 import ResolutionsResolvers from '../../api/resolutions/resolvers';
 import UsersSchema from '../../api/users/User.graphql';
 import UsersResolvers from '../../api/users/resolvers';
-// hlff
+// hl
 // this pattern is scalable and is good for adding many schemas
 // const testSchema = `
 //     type Query {

@@ -6,6 +6,7 @@ import GoalForm from './GoalForm';
 import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm';
 import { withApollo } from 'react-apollo';
+import Goal from './resolutions/Goal';
 
 const App = ({ loading, resolutions, client, user }) => {
     if (loading) return null;
@@ -33,7 +34,13 @@ const App = ({ loading, resolutions, client, user }) => {
             <ResolutionForm />
             <ul>
                 {resolutions.map(res => (
-                    <li key={res._id}>{res.name}
+                    <li key={res._id}>
+                    {res.name}
+                    <ul>
+                        {res.goals.map(goal => {
+                            <Goal goal={goal} key={goal._id} />
+                        })}
+                    </ul>
                         <GoalForm resolutionId={res._id}/>
                     </li>
                 ))}
@@ -47,6 +54,10 @@ const resolutionsQuery = gql`
         resolutions {
             _id
             name
+            goals {
+                _id
+                name
+            }
         }
         user {
             _id
